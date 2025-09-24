@@ -10,23 +10,53 @@ const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-disp
 export const metadata: Metadata = {
   metadataBase: new URL("https://comotozze.com"),
   title: {
-    default: "Comotozze | Links",
-    template: "%s | Comotozze"
+    default: "Comatozze – OnlyFans & Fansly модель",
+    template: "%s | Comatozze"
   },
-  description: "Curated hub of Comotozze social and community links.",
+  description:
+    "Comatozze (иногда ищут как comotozze) – модель OnlyFans и Fansly с эксклюзивными фото, видео 18+ и официальными ссылками на соцсети.",
+  keywords: [
+    "Comatozze",
+    "Comotozze",
+    "OnlyFans модель",
+    "Fansly модель",
+    "контент 18+",
+    "официальные ссылки Comatozze"
+  ],
+  alternates: {
+    canonical: "https://comotozze.com"
+  },
   openGraph: {
-    title: "Comotozze | Links",
-    description: "Find all the official Comotozze social profiles and communities in one place.",
+    title: "Comatozze – OnlyFans & Fansly модель",
+    description:
+      "Официальные ссылки, фото и видео 18+ популярной модели Comatozze (часто ищут как comotozze).",
     url: "https://comotozze.com",
-    siteName: "Comotozze",
-    locale: "en_US",
-    type: "website"
+    siteName: "Comatozze Official",
+    locale: "ru_RU",
+    type: "website",
+    images: [
+      {
+        url: "https://comotozze.com/preview.jpg",
+        alt: "Comatozze – популярная модель OnlyFans/Fansly",
+        width: 1200,
+        height: 630
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Comotozze | Links",
-    description: "Discover the latest social channels from the Comotozze collective.",
-    creator: "@comotozze"
+    title: "Comatozze – OnlyFans & Fansly",
+    description: "Официальные ссылки и эксклюзивный контент 18+ модели Comatozze.",
+    creator: "@comatozze",
+    images: [{ url: "https://comotozze.com/preview.jpg", alt: "Comatozze в фотосессии" }]
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1
+  },
+  other: {
+    rating: "adult",
+    robots: "index, follow"
   }
 };
 
