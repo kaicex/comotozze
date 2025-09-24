@@ -1,11 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
 import type { ReactNode } from "react";
-import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import "./globals.css";
 
-const sans = Manrope({ subsets: ["latin"], variable: "--font-sans" });
-const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display" });
+const sans = localFont({
+  variable: "--font-sans",
+  display: "swap",
+  src: [
+    { path: "../public/fonts/manrope/Manrope-200.ttf", weight: "200", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-300.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-400.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-500.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-600.ttf", weight: "600", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-700.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/manrope/Manrope-800.ttf", weight: "800", style: "normal" }
+  ]
+});
+
+const display = localFont({
+  variable: "--font-display",
+  display: "swap",
+  src: [
+    { path: "../public/fonts/bricolage/BricolageGrotesque-200.ttf", weight: "200", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-300.ttf", weight: "300", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-400.ttf", weight: "400", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-500.ttf", weight: "500", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-600.ttf", weight: "600", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-700.ttf", weight: "700", style: "normal" },
+    { path: "../public/fonts/bricolage/BricolageGrotesque-800.ttf", weight: "800", style: "normal" }
+  ]
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://comotozze.com"),
@@ -50,14 +75,15 @@ export const metadata: Metadata = {
     creator: "@comatozze",
     images: [{ url: "https://comotozze.com/preview.jpg", alt: "Comatozze в фотосессии" }]
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1
-  },
   other: {
     rating: "adult",
     robots: "index, follow"
   }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({

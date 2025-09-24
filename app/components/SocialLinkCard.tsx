@@ -1,9 +1,19 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import type { IconType } from "react-icons";
+import { FaEnvelopeOpenText, FaInstagram, FaPaperPlane, FaStar, FaTiktok } from "react-icons/fa";
 import { useCallback } from "react";
 import { trackMetrikaGoal } from "../lib/metrika";
 import type { SocialPlatform } from "./social-links";
+
+const iconMap: Record<SocialPlatform["icon"], IconType> = {
+  telegram: FaPaperPlane,
+  fansly: FaStar,
+  instagram: FaInstagram,
+  tiktok: FaTiktok,
+  email: FaEnvelopeOpenText
+};
 
 export function SocialLinkCard({
   platform
@@ -14,7 +24,7 @@ export function SocialLinkCard({
   const accentTint = `${accent}1f`;
   const accentGlow = `${accent}33`;
   const accentOverlay = `linear-gradient(120deg, ${accent}22 0%, ${accent}11 45%, transparent 100%)`;
-  const Icon = platform.icon;
+  const Icon = iconMap[platform.icon];
 
   const cardStyle: CSSProperties = {
     borderColor: accentTint

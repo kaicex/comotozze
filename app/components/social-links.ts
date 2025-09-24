@@ -1,13 +1,10 @@
-import type { IconType } from "react-icons";
-import { FaEnvelopeOpenText, FaInstagram, FaPaperPlane, FaStar, FaTiktok } from "react-icons/fa";
-
 export type SocialPlatform = {
   name: string;
   handle: string;
   url: string;
   description: string;
   accentColor: string;
-  icon: IconType;
+  icon: "telegram" | "fansly" | "instagram" | "tiktok" | "email";
   goalName: string;
 };
 
@@ -18,7 +15,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://t.me/ComotozzeOfficial",
     description: "My only real channel. No fakes.",
     accentColor: "#0088CC",
-    icon: FaPaperPlane,
+    icon: "telegram",
     goalName: "click_telegram"
   },
   {
@@ -27,7 +24,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://fansly.com/comatozze/posts",
     description: "Full sets, PPVs, daily spicy posts.",
     accentColor: "#6D4AFF",
-    icon: FaStar,
+    icon: "fansly",
     goalName: "click_fansly"
   },
   {
@@ -36,7 +33,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://www.instagram.com/umaanorth",
     description: "Cute teasers, selfies, outfits.",
     accentColor: "#E1306C",
-    icon: FaInstagram,
+    icon: "instagram",
     goalName: "click_instagram"
   },
   {
@@ -45,7 +42,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://www.tiktok.com/@uma.north",
     description: "Fun transitions & flirty clips.",
     accentColor: "#69C9D0",
-    icon: FaTiktok,
+    icon: "tiktok",
     goalName: "click_tiktok"
   },
   {
@@ -54,7 +51,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "mailto:hello@comotozze.com",
     description: "Brands & collabs—email me here.",
     accentColor: "#3d1e3a",
-    icon: FaEnvelopeOpenText,
+    icon: "email",
     goalName: "click_business_email"
   }
 ];
