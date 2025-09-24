@@ -1,4 +1,8 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import { useCallback } from "react";
+import { trackMetrikaGoal } from "../lib/metrika";
 import type { SocialPlatform } from "./social-links";
 
 export function SocialLinkCard({
@@ -16,6 +20,13 @@ export function SocialLinkCard({
     borderColor: accentTint
   };
 
+  const handleClick = useCallback(() => {
+      trackMetrikaGoal(platform.goalName, {
+        href: platform.url,
+        text: platform.name
+      });
+    }, [platform.goalName, platform.name, platform.url]);
+
   return (
     <li>
       <a
@@ -24,6 +35,7 @@ export function SocialLinkCard({
         rel="noreferrer noopener"
         className="group relative flex items-center gap-5 overflow-hidden rounded-3xl border bg-white/85 px-6 py-5 text-left shadow-[0_24px_50px_-32px_rgba(61,30,58,0.28)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_32px_70px_-34px_rgba(61,30,58,0.35)]"
         style={cardStyle}
+        onClick={handleClick}
       >
         <span
           aria-hidden="true"

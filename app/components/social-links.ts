@@ -8,6 +8,7 @@ export type SocialPlatform = {
   description: string;
   accentColor: string;
   icon: IconType;
+  goalName: string;
 };
 
 export const socialPlatforms: SocialPlatform[] = [
@@ -17,7 +18,8 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://t.me/ComotozzeOfficial",
     description: "My only real channel. No fakes.",
     accentColor: "#0088CC",
-    icon: FaPaperPlane
+    icon: FaPaperPlane,
+    goalName: "click_telegram"
   },
   {
     name: "Fansly",
@@ -25,7 +27,8 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://fansly.com/comatozze/posts",
     description: "Full sets, PPVs, daily spicy posts.",
     accentColor: "#6D4AFF",
-    icon: FaStar
+    icon: FaStar,
+    goalName: "click_fansly"
   },
   {
     name: "Instagram",
@@ -33,7 +36,8 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://www.instagram.com/umaanorth",
     description: "Cute teasers, selfies, outfits.",
     accentColor: "#E1306C",
-    icon: FaInstagram
+    icon: FaInstagram,
+    goalName: "click_instagram"
   },
   {
     name: "TikTok",
@@ -41,7 +45,8 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "https://www.tiktok.com/@uma.north",
     description: "Fun transitions & flirty clips.",
     accentColor: "#69C9D0",
-    icon: FaTiktok
+    icon: FaTiktok,
+    goalName: "click_tiktok"
   },
   {
     name: "Business",
@@ -49,6 +54,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "mailto:hello@comotozze.com",
     description: "Brands & collabs—email me here.",
     accentColor: "#3d1e3a",
-    icon: FaEnvelopeOpenText
+    icon: FaEnvelopeOpenText,
+    goalName: "click_business_email"
   }
 ];
