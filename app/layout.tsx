@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s | Comatozze"
   },
   description:
-    "Comatozze (иногда ищут как comotozze) – модель OnlyFans и Fansly с эксклюзивными фото, видео 18+ и официальными ссылками на соцсети.",
+    "Comatozze Official – Exclusive Content & Connections. Все проверенные ссылки модели: Telegram, Fansly, Instagram, TikTok и деловой email.",
   keywords: [
     "Comatozze",
     "Comotozze",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Comatozze – OnlyFans & Fansly модель",
     description:
-      "Официальные ссылки, фото и видео 18+ популярной модели Comatozze (часто ищут как comotozze).",
+      "Comatozze Official – Exclusive Content & Connections. Все проверенные профили и эксклюзивный контент популярной модели.",
     url: "https://comotozze.com",
     siteName: "Comatozze Official",
     locale: "ru_RU",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Comatozze – OnlyFans & Fansly",
-    description: "Официальные ссылки и эксклюзивный контент 18+ модели Comatozze.",
+    description: "Comatozze Official – Exclusive Content & Connections: Telegram, Fansly, Instagram, TikTok и деловой email.",
     creator: "@comatozze",
     images: [{ url: "/preview.jpg", alt: "Comatozze в фотосессии" }]
   },

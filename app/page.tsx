@@ -32,6 +32,9 @@ export default function HomePage() {
           <h1 className="font-display text-[3rem] leading-[1.05] text-berry-ink sm:text-[3.5rem]">
             Comatozze / Uma North
           </h1>
+          <p className="mx-auto max-w-xl text-base leading-relaxed text-berry-ink/70 sm:text-lg">
+            Comatozze Official – Exclusive Content & Connections.
+          </p>
         </header>
 
         <ul className="w-full space-y-4">
