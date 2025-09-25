@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://comotozze.com/preview.jpg",
+        url: "/preview.jpg",
         alt: "Comatozze – популярная модель OnlyFans/Fansly",
         width: 1200,
         height: 630
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: "Comatozze – OnlyFans & Fansly",
     description: "Официальные ссылки и эксклюзивный контент 18+ модели Comatozze.",
     creator: "@comatozze",
-    images: [{ url: "https://comotozze.com/preview.jpg", alt: "Comatozze в фотосессии" }]
+    images: [{ url: "/preview.jpg", alt: "Comatozze в фотосессии" }]
   },
   other: {
     rating: "adult",

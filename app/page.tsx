@@ -19,7 +19,7 @@ export default function HomePage() {
           <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border border-rose-velvet/30 bg-white/40 shadow-[0_22px_48px_-32px_rgba(61,30,58,0.32)]">
             <Image
               src="https://ugc.production.linktr.ee/c602e625-8b82-4bbf-953b-45f540adf6cd_Untitled-1.jpeg?io=true&size=avatar-v3_0"
-              alt="Comatozze – OnlyFans модель в портретной фотосессии"
+              alt="Comatozze – Uma North модель"
               fill
               sizes="112px"
               className="object-cover"
