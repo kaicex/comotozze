@@ -25,11 +25,8 @@ const COPY: Record<
 > = {
   en: {
     badgeLabel: "Official Links",
-    tagline: "Official 18+ page for OnlyFans & Fansly model",
-    intro: [
-      "I'm Comatozze (Uma North) — an 18+ model on Fansly and OnlyFans.",
-      "Only my verified links live here."
-    ],
+    tagline: "18+ creator on Fansly",
+    intro: ["All official links below."],
     navLabel: "Official social links and contact for Comatozze",
     faqTitle: "FAQ — Common Questions",
     faqItems: [
@@ -54,11 +51,8 @@ const COPY: Record<
   },
   ru: {
     badgeLabel: "Официальные ссылки",
-    tagline: "Официальная 18+ страница модели OnlyFans & Fansly",
-    intro: [
-      "Я Comatozze (Uma North) — модель 18+ на Fansly и OnlyFans.",
-      "Здесь только мои проверенные ссылки."
-    ],
+    tagline: "Модель 18+ на Fansly",
+    intro: ["Все мои настоящие соцсети — ниже."],
     navLabel: "Официальные соцсети и контакты Comatozze",
     faqTitle: "FAQ — Частые вопросы",
     faqItems: [
