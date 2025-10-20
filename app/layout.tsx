@@ -35,26 +35,31 @@ const display = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://comotozze.com"),
   title: {
-    default: "Comatozze – OnlyFans & Fansly модель",
-    template: "%s | Comatozze"
+    default: "Comatozze – OnlyFans & Fansly Model | Official Links",
+    template: "%s | Comatozze Official"
   },
   description:
-    "Comatozze Official – Exclusive Content & Connections. Все проверенные ссылки модели: Telegram, Fansly, Instagram, TikTok и деловой email.",
+    "Comatozze (Uma North) – 18+ model on OnlyFans & Fansly. Official links to Telegram, Fansly, Instagram, TikTok, and business email. / Официальные ссылки модели Comatozze (Uma North) на Telegram, Fansly, Instagram, TikTok и деловой email.",
   keywords: [
     "Comatozze",
     "Comotozze",
     "OnlyFans модель",
     "Fansly модель",
     "контент 18+",
-    "официальные ссылки Comatozze"
+    "официальные ссылки Comatozze",
+    "OnlyFans model",
+    "Fansly model",
+    "Comatozze official links",
+    "Uma North",
+    "Uma North официальный сайт"
   ],
   alternates: {
     canonical: "https://comotozze.com"
   },
   openGraph: {
-    title: "Comatozze – OnlyFans & Fansly модель",
+    title: "Comatozze – OnlyFans & Fansly Model | Official Links",
     description:
-      "Comatozze Official – Exclusive Content & Connections. Все проверенные профили и эксклюзивный контент популярной модели.",
+      "Comatozze (Uma North) – popular OnlyFans/Fansly model. Verified profiles, exclusive content, and contacts in one place. / Все проверенные профили, эксклюзивный контент и контакты модели Comatozze.",
     url: "https://comotozze.com",
     siteName: "Comatozze Official",
     locale: "ru_RU",
@@ -70,8 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Comatozze – OnlyFans & Fansly",
-    description: "Comatozze Official – Exclusive Content & Connections: Telegram, Fansly, Instagram, TikTok и деловой email.",
+    title: "Comatozze – OnlyFans & Fansly Model",
+    description:
+      "Comatozze (Uma North) shares exclusive 18+ content on Fansly & OnlyFans. Discover all official links: Telegram, Fansly, Instagram, TikTok, business email.",
     creator: "@comatozze",
     images: [{ url: "/preview.jpg", alt: "Comatozze в фотосессии" }]
   },
@@ -96,6 +102,24 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth bg-blossom">
       <body className={`${sans.variable} ${display.variable} font-sans`}>
+        <Script id="structured-data" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Comatozze",
+            alternateName: "Uma North",
+            url: "https://comotozze.com",
+            description:
+              "Comatozze (Uma North) is an 18+ model on Fansly and OnlyFans sharing exclusive photos and videos. Official social links and contacts collected on comotozze.com.",
+            image: "https://comotozze.com/preview.jpg",
+            sameAs: [
+              "https://t.me/ComotozzeOfficial",
+              "https://fansly.com/comatozze",
+              "https://www.instagram.com/umaanorth",
+              "https://www.tiktok.com/@uma.north"
+            ]
+          })}
+        </Script>
         {yandexMetrikaId ? (
           <>
             <Script id="yandex-metrika" strategy="afterInteractive">

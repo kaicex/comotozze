@@ -16,9 +16,11 @@ const iconMap: Record<SocialPlatform["icon"], IconType> = {
 };
 
 export function SocialLinkCard({
-  platform
+  platform,
+  language
 }: {
   platform: SocialPlatform;
+  language: "en" | "ru";
 }) {
   const accent = platform.accentColor.toUpperCase();
   const accentTint = `${accent}1f`;
@@ -29,6 +31,17 @@ export function SocialLinkCard({
   const cardStyle: CSSProperties = {
     borderColor: accentTint
   };
+  const linkClassName = [
+    "group relative flex items-center gap-5 overflow-hidden rounded-3xl border bg-white/85 px-6 py-5 text-left shadow-[0_24px_50px_-32px_rgba(61,30,58,0.28)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_32px_70px_-34px_rgba(61,30,58,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-velvet/60",
+    platform.isPrimary ? "border-white/70 ring-2 ring-rose-velvet/30" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const description = platform.description[language];
+  const displayName = platform.label?.[language] ?? platform.name;
+  const openInNewTabText = language === "ru" ? "откроется в новой вкладке" : "opens in new tab";
+  const primaryBadgeText = language === "ru" ? "Главный канал" : "Main channel";
 
   const handleClick = useCallback(() => {
       trackMetrikaGoal(platform.goalName, {
@@ -43,8 +56,9 @@ export function SocialLinkCard({
         href={platform.url}
         target="_blank"
         rel="noreferrer noopener"
-        className="group relative flex items-center gap-5 overflow-hidden rounded-3xl border bg-white/85 px-6 py-5 text-left shadow-[0_24px_50px_-32px_rgba(61,30,58,0.28)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_32px_70px_-34px_rgba(61,30,58,0.35)]"
+        className={linkClassName}
         style={cardStyle}
+        aria-label={`${displayName} — ${description} (${openInNewTabText})`}
         onClick={handleClick}
       >
         <span
@@ -66,17 +80,25 @@ export function SocialLinkCard({
         <div className="relative z-10 flex flex-1 flex-col gap-1.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="font-display text-[1.4rem] leading-tight text-berry-ink">
-              {platform.name}
+              {displayName}
             </span>
-            <span className="rounded-full border border-rose-velvet/10 px-3 py-1 text-[0.58rem] font-semibold uppercase tracking-[0.5em] text-rose-velvet/70">
+            <span className="rounded-full border border-rose-velvet/15 px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.4em] text-rose-velvet/80">
               {platform.handle}
             </span>
           </div>
-          <p className="text-[0.95rem] leading-relaxed text-berry-ink/70">
-            {platform.description}
+          {platform.isPrimary ? (
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-rose-velvet/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-rose-velvet/80">
+              {primaryBadgeText}
+            </span>
+          ) : null}
+          <p className="text-[0.98rem] leading-relaxed text-berry-ink/75" lang={language}>
+            {description}
           </p>
         </div>
-        <span className="relative z-10 hidden text-sm font-semibold uppercase tracking-[0.32em] text-rose-velvet/70 transition-transform duration-300 group-hover:translate-x-1 sm:block">
+        <span
+          aria-hidden="true"
+          className="relative z-10 hidden text-sm font-semibold uppercase tracking-[0.32em] text-rose-velvet/70 transition-transform duration-300 group-hover:translate-x-1 sm:block"
+        >
           ↗
         </span>
         <span
