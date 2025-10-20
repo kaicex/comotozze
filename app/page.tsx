@@ -33,7 +33,7 @@ const COPY: Record<
       {
         id: "telegram",
         question: "Where is my real Telegram?",
-        answer: "The top card leads to @ComotozzeOfficial — that's the official profile."
+        answer: "The first card is Telegram. That’s where I post updates."
       },
       {
         id: "fansly",
@@ -59,7 +59,7 @@ const COPY: Record<
       {
         id: "telegram",
         question: "Где мой настоящий Telegram?",
-        answer: "Сверху — @ComotozzeOfficial. Это мой официальный канал."
+        answer: "Первый в списке — Telegram. Там я публикую всё основное."
       },
       {
         id: "fansly",

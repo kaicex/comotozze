@@ -25,8 +25,8 @@ export const socialPlatforms: SocialPlatform[] = [
     handle: "@ComotozzeOfficial",
     url: "https://t.me/ComotozzeOfficial",
     description: {
-      en: "My only channel. News, previews, giveaways. Everything else is fake.",
-      ru: "Мой единственный канал. Новости, превью, розыгрыши. Всё остальное — фейк."
+      en: "News, previews, giveaways. I post the good stuff here.",
+      ru: "Новости, превью, розыгрыши. Канал для своих."
     },
     accentColor: "#0088CC",
     icon: "telegram",
