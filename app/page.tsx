@@ -25,6 +25,7 @@ const COPY: Record<
 > = {
   en: {
     badgeLabel: "Official Links",
+    tagline: "I’m Uma North (Comatozze). I create 18+ content.",
     navLabel: "Official social links and contact for Comatozze",
     faqTitle: "FAQ — Common Questions",
     faqItems: [
@@ -92,7 +93,7 @@ export default function HomePage() {
         className="pointer-events-none absolute -bottom-40 right-[-6rem] h-[360px] w-[360px] rounded-full bg-rose-velvet/15 blur-[160px] animate-float-slow"
       />
 
-      <section className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-12 text-center" lang={language}>
+      <section className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-8 text-center" lang={language}>
 
         <div className="flex w-full justify-center">
           <div className="inline-flex items-center gap-1 rounded-full border border-rose-velvet/20 bg-white/70 p-1 backdrop-blur">
@@ -119,7 +120,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <header className="w-full space-y-5">
+        <header className="w-full space-y-4">
           <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border border-rose-velvet/30 bg-white/40 shadow-[0_22px_48px_-32px_rgba(61,30,58,0.32)]">
             <Image
               src="https://ugc.production.linktr.ee/c602e625-8b82-4bbf-953b-45f540adf6cd_Untitled-1.jpeg?io=true&size=avatar-v3_0"
@@ -135,7 +136,7 @@ export default function HomePage() {
           </span>
           <h1 className="font-display text-[3rem] leading-[1.05] text-berry-ink sm:text-[3.5rem]">Comatozze / Uma North</h1>
           {copy.tagline ? (
-            <h2 className="text-sm font-semibold uppercase tracking-[0.32em] text-berry-ink/70 sm:text-base">{copy.tagline}</h2>
+            <h2 className="text-sm font-medium text-berry-ink/70 sm:text-base">{copy.tagline}</h2>
           ) : null}
           {copy.intro && copy.intro.length > 0 ? (
             <div className="mx-auto max-w-2xl text-base leading-relaxed text-berry-ink/80 sm:text-lg">
