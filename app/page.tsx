@@ -15,7 +15,6 @@ type Language = (typeof LANGUAGE_OPTIONS)[number]["code"];
 const COPY: Record<
   Language,
   {
-    badgeLabel: string;
     tagline?: string;
     intro?: string[];
     navLabel: string;
@@ -24,11 +23,17 @@ const COPY: Record<
   }
 > = {
   en: {
-    badgeLabel: "Official Links",
-    tagline: "I’m Uma North (Comatozze). I create 18+ content.",
+    tagline:
+      "Hi, I'm Uma! Think cute face, wild mind.\nI post the stuff your feed is missing — daily spice, full sets, and good vibe",
     navLabel: "Official social links and contact for Comatozze",
     faqTitle: "FAQ — Common Questions",
     faqItems: [
+      {
+        id: "why-subscribe",
+        question: "Why subscribe?",
+        answer:
+          "Daily fresh content, Full HD photosets, Personal replies, Exclusive PPVs, No paywalls on main feed."
+      },
       {
         id: "telegram",
         question: "Where is my real Telegram?",
@@ -49,26 +54,32 @@ const COPY: Record<
     ]
   },
   ru: {
-    badgeLabel: "Официальные ссылки",
+    tagline: "Привет, я Ума! Милая снаружи, дикая внутри 😈\nЕжедневный контент, полные сеты и никакой скукоты....",
     navLabel: "Официальные соцсети и контакты Comatozze",
     faqTitle: "FAQ — Частые вопросы",
     faqItems: [
       {
+        id: "why-subscribe",
+        question: "Почему стоит подписаться?",
+        answer:
+          "Ежедневный свежий контент без пауз, полные сеты в высоком качестве, отвечаю лично в сообщениях, эксклюзивные PPV, которых нет в ленте, никаких пейволлов — основной контент доступен сразу."
+      },
+      {
         id: "telegram",
         question: "Где мой настоящий Telegram?",
-        answer: "Первый в списке — Telegram. Там я публикую всё основное."
+        answer:
+          "Первая карточка в списке — это мой главный канал. Там я публикую новости, превью и розыгрыши. Заходи!"
       },
       {
         id: "fansly",
         question: "Почему нет OnlyFans?",
-        answer:
-          "Работаю через Fansly. Там стабильнее. Ссылка выше."
+        answer: "Я перешла на Fansly — там стабильнее и удобнее. Вся магия по ссылке выше, подписывайся!"
       },
       {
         id: "business",
         question: "Связь по рекламе?",
         answer:
-          "Пиши на hello@comotozze.com. Кратко и по делу."
+          "Пиши на hello@comotozze.com с коротким и понятным предложением. Отвечаю быстро, если интересно!"
       }
     ]
   }
@@ -131,12 +142,9 @@ export default function HomePage() {
               priority
             />
           </div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-rose-velvet/20 bg-white/80 px-4 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.36em] text-rose-velvet/80 backdrop-blur">
-            {copy.badgeLabel}
-          </span>
           <h1 className="font-display text-[3rem] leading-[1.05] text-berry-ink sm:text-[3.5rem]">Comatozze / Uma North</h1>
           {copy.tagline ? (
-            <h2 className="text-sm font-medium text-berry-ink/70 sm:text-base">{copy.tagline}</h2>
+            <h2 className="text-sm font-medium text-berry-ink/70 sm:text-base whitespace-pre-line">{copy.tagline}</h2>
           ) : null}
           {copy.intro && copy.intro.length > 0 ? (
             <div className="mx-auto max-w-2xl text-base leading-relaxed text-berry-ink/80 sm:text-lg">
@@ -152,7 +160,6 @@ export default function HomePage() {
             ))}
           </ul>
         </nav>
-
         <section
           id="faq"
           className="w-full rounded-3xl border border-white/60 bg-white/85 px-6 py-8 text-left shadow-[0_26px_60px_-38px_rgba(61,30,58,0.35)] backdrop-blur sm:px-10 sm:py-10"

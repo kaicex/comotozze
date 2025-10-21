@@ -41,7 +41,6 @@ export function SocialLinkCard({
   const description = platform.description[language];
   const displayName = platform.label?.[language] ?? platform.name;
   const openInNewTabText = language === "ru" ? "откроется в новой вкладке" : "opens in new tab";
-  const primaryBadgeText = language === "ru" ? "Главный канал" : "Main channel";
 
   const handleClick = useCallback(() => {
       trackMetrikaGoal(platform.goalName, {
@@ -86,11 +85,6 @@ export function SocialLinkCard({
               {platform.handle}
             </span>
           </div>
-          {platform.isPrimary ? (
-            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-rose-velvet/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-rose-velvet/80">
-              {primaryBadgeText}
-            </span>
-          ) : null}
           <p className="text-[0.98rem] leading-relaxed text-berry-ink/75" lang={language}>
             {description}
           </p>

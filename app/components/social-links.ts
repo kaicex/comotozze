@@ -25,8 +25,8 @@ export const socialPlatforms: SocialPlatform[] = [
     handle: "@ComotozzeOfficial",
     url: "https://t.me/ComotozzeOfficial",
     description: {
-      en: "News, previews, giveaways. I post the good stuff here.",
-      ru: "Новости, превью, розыгрыши. Канал для своих."
+      en: "Free previews, exclusive giveaways, and first dibs on everything. Join the fun!",
+      ru: "Бесплатные превью, эксклюзивные розыгрыши и все новости первыми. Заходи, тут своя атмосфера!"
     },
     accentColor: "#0088CC",
     icon: "telegram",
@@ -42,8 +42,8 @@ export const socialPlatforms: SocialPlatform[] = [
     handle: "fansly.com/comatozze",
     url: "https://fansly.com/comatozze/posts",
     description: {
-      en: "Full sets, PPVs, daily spicy posts.",
-      ru: "Полные сеты, PPV и ежедневные горячие посты."
+      en: "Daily spicy posts, full photosets, and PPVs that'll make your day better 😏",
+      ru: "Полные сеты в HD, горячие посты каждый день и PPV, от которых жарко. Подписывайся — не пожалеешь 😏"
     },
     accentColor: "#6D4AFF",
     icon: "fansly",
@@ -58,8 +58,8 @@ export const socialPlatforms: SocialPlatform[] = [
     handle: "@umaanorth",
     url: "https://www.instagram.com/umaanorth",
     description: {
-      en: "Cute teasers, selfies, outfits.",
-      ru: "Милые тизеры, селфи и образы."
+      en: "SFW vibes, cute selfies, and outfit inspo. The tame side of me ✨",
+      ru: "SFW-версия меня: милые селфи, образы и атмосфера. Для тех, кто любит эстетику ✨"
     },
     accentColor: "#E1306C",
     icon: "instagram",
@@ -74,8 +74,8 @@ export const socialPlatforms: SocialPlatform[] = [
     handle: "@uma.north",
     url: "https://www.tiktok.com/@uma.north",
     description: {
-      en: "Fun transitions & flirty clips.",
-      ru: "Весёлые переходы и кокетливые клипы."
+      en: "Flirty transitions, fun clips, and a reason to scroll less and subscribe more 😉",
+      ru: "Кокетливые переходы, залипательные клипы и повод подписаться на большее 😉"
     },
     accentColor: "#69C9D0",
     icon: "tiktok",
@@ -91,7 +91,7 @@ export const socialPlatforms: SocialPlatform[] = [
     url: "mailto:hello@comotozze.com",
     description: {
       en: "Brands & collabs—email me here.",
-      ru: "Бренды и коллаборации — пишите сюда."
+      ru: "Сотрудничество и реклама — пиши на hello@comotozze.com. Коротко и по делу, пожалуйста."
     },
     accentColor: "#3d1e3a",
     icon: "email",
