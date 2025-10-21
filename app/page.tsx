@@ -16,8 +16,8 @@ const COPY: Record<
   Language,
   {
     badgeLabel: string;
-    tagline: string;
-    intro: string[];
+    tagline?: string;
+    intro?: string[];
     navLabel: string;
     faqTitle: string;
     faqItems: Array<{ id: string; question: string; answer: string }>;
@@ -25,8 +25,6 @@ const COPY: Record<
 > = {
   en: {
     badgeLabel: "Official Links",
-    tagline: "18+ creator on Fansly",
-    intro: ["All official links below."],
     navLabel: "Official social links and contact for Comatozze",
     faqTitle: "FAQ — Common Questions",
     faqItems: [
@@ -51,8 +49,6 @@ const COPY: Record<
   },
   ru: {
     badgeLabel: "Официальные ссылки",
-    tagline: "Модель 18+ на Fansly",
-    intro: ["Все мои настоящие соцсети — ниже."],
     navLabel: "Официальные соцсети и контакты Comatozze",
     faqTitle: "FAQ — Частые вопросы",
     faqItems: [
@@ -138,10 +134,14 @@ export default function HomePage() {
             {copy.badgeLabel}
           </span>
           <h1 className="font-display text-[3rem] leading-[1.05] text-berry-ink sm:text-[3.5rem]">Comatozze / Uma North</h1>
-          <h2 className="text-lg font-semibold uppercase tracking-[0.38em] text-rose-velvet/80 sm:text-xl">{copy.tagline}</h2>
-          <div className="mx-auto max-w-2xl text-base leading-relaxed text-berry-ink/80 sm:text-lg">
-            <p className="whitespace-pre-line">{copy.intro.join("\n")}</p>
-          </div>
+          {copy.tagline ? (
+            <h2 className="text-sm font-semibold uppercase tracking-[0.32em] text-berry-ink/70 sm:text-base">{copy.tagline}</h2>
+          ) : null}
+          {copy.intro && copy.intro.length > 0 ? (
+            <div className="mx-auto max-w-2xl text-base leading-relaxed text-berry-ink/80 sm:text-lg">
+              <p className="whitespace-pre-line">{copy.intro.join("\n")}</p>
+            </div>
+          ) : null}
         </header>
 
         <nav aria-label={copy.navLabel} className="w-full" lang={language}>
