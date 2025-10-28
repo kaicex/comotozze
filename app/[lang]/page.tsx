@@ -7,7 +7,8 @@ import { socialPlatforms } from "../components/social-links";
 
 const LANGUAGE_OPTIONS = [
   { code: "en", label: "EN", title: "English" },
-  { code: "ru", label: "RU", title: "Русский" }
+  { code: "ru", label: "RU", title: "Русский" },
+  { code: "zh", label: "中文", title: "简体中文" }
 ] as const;
 
 type Language = (typeof LANGUAGE_OPTIONS)[number]["code"];
@@ -82,6 +83,36 @@ const COPY: Record<
           "Пиши на hello@comotozze.com с коротким и понятным предложением. Отвечаю быстро, если интересно!"
       }
     ]
+  },
+  zh: {
+    tagline: "嗨，我是Uma！外表甜美，内心野性。\n每天更新你想看的内容——性感照片、完整套图，让你心动 💕",
+    navLabel: "Comatozze官方社交媒体和联系方式",
+    faqTitle: "常见问题解答",
+    faqItems: [
+      {
+        id: "why-subscribe",
+        question: "为什么要订阅我？",
+        answer:
+          "每日新鲜内容更新、全高清照片套图、我会亲自回复你的消息、独家付费视频、主页内容无需额外付费。"
+      },
+      {
+        id: "telegram",
+        question: "你的官方Telegram在哪里？",
+        answer:
+          "第一个卡片就是我的Telegram频道。我会在那里发布最新动态。"
+      },
+      {
+        id: "fansly",
+        question: "为什么不用OnlyFans？",
+        answer: "我主要使用Fansly，因为平台更稳定。上面的 fansly.com/comatozze 就是订阅地址。"
+      },
+      {
+        id: "business",
+        question: "想投放广告？",
+        answer:
+          "请发送简短明确的合作提案至 hello@comotozze.com。内容请简洁清晰。"
+      }
+    ]
   }
 };
 
@@ -137,7 +168,7 @@ export default function HomePage({ params }: { params: Promise<{ lang: string }>
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 top-full mt-2 w-32 overflow-hidden rounded-lg border border-rose-velvet/20 bg-white/90 shadow-lg backdrop-blur">
+              <div className="absolute right-0 top-full mt-2 w-36 overflow-hidden rounded-lg border border-rose-velvet/20 bg-white/90 shadow-lg backdrop-blur">
                 {LANGUAGE_OPTIONS.map((option) => (
                   <Link
                     key={option.code}

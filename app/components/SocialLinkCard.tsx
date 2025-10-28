@@ -20,7 +20,7 @@ export function SocialLinkCard({
   language
 }: {
   platform: SocialPlatform;
-  language: "en" | "ru";
+  language: "en" | "ru" | "zh";
 }) {
   const accent = platform.accentColor.toUpperCase();
   const accentTint = `${accent}1f`;
@@ -40,7 +40,7 @@ export function SocialLinkCard({
 
   const description = platform.description[language];
   const displayName = platform.label?.[language] ?? platform.name;
-  const openInNewTabText = language === "ru" ? "откроется в новой вкладке" : "opens in new tab";
+  const openInNewTabText = language === "zh" ? "在新标签页中打开" : language === "ru" ? "откроется в новой вкладке" : "opens in new tab";
 
   const handleClick = useCallback(() => {
       trackMetrikaGoal(platform.goalName, {

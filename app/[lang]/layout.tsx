@@ -11,12 +11,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   const titles = {
     en: "Comatozze / Uma North - Official Links",
-    ru: "Comatozze / Uma North - Официальные ссылки"
+    ru: "Comatozze / Uma North - Официальные ссылки",
+    zh: "Comatozze / Uma North - 官方链接"
   };
 
   const descriptions = {
     en: "Official social links and contact for Comatozze / Uma North. Daily content, exclusive sets, and more.",
-    ru: "Официальные соцсети и контакты Comatozze / Uma North. Ежедневный контент, эксклюзивные сеты и многое другое."
+    ru: "Официальные соцсети и контакты Comatozze / Uma North. Ежедневный контент, эксклюзивные сеты и многое другое.",
+    zh: "Comatozze / Uma North官方社交媒体和联系方式。每日更新内容、独家套图等。"
   };
 
   return {
@@ -26,18 +28,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       canonical: `/${lang}`,
       languages: {
         en: "/en",
-        ru: "/ru"
+        ru: "/ru",
+        zh: "/zh"
       }
     },
     openGraph: {
-      locale: lang === "ru" ? "ru_RU" : "en_US",
-      alternateLocale: lang === "ru" ? "en_US" : "ru_RU"
+      locale: lang === "zh" ? "zh_CN" : lang === "ru" ? "ru_RU" : "en_US",
+      alternateLocale: lang === "zh" ? ["en_US", "ru_RU"] : lang === "ru" ? ["en_US", "zh_CN"] : ["ru_RU", "zh_CN"]
     }
   };
 }
 
 export function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "ru" }];
+  return [{ lang: "en" }, { lang: "ru" }, { lang: "zh" }];
 }
 
 export default async function LangLayout({ params, children }: Props) {
