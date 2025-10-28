@@ -1,8 +1,9 @@
- "use client";
+"use client";
 
-import { useEffect, useState } from "react";
-import { SocialLinkCard } from "./components/SocialLinkCard";
-import { socialPlatforms } from "./components/social-links";
+import Link from "next/link";
+import { useState, use } from "react";
+import { SocialLinkCard } from "../components/SocialLinkCard";
+import { socialPlatforms } from "../components/social-links";
 
 const LANGUAGE_OPTIONS = [
   { code: "en", label: "EN", title: "English" },
@@ -36,7 +37,7 @@ const COPY: Record<
       {
         id: "telegram",
         question: "Where is my real Telegram?",
-        answer: "The first card is Telegram. That’s where I post updates."
+        answer: "The first card is Telegram. That's where I post updates."
       },
       {
         id: "fansly",
@@ -84,14 +85,11 @@ const COPY: Record<
   }
 };
 
-export default function HomePage() {
-  const [language, setLanguage] = useState<Language>("en");
+export default function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = use(params);
+  const language = (lang as Language) || "en";
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const copy = COPY[language];
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-  }, [language]);
 
   return (
     <main className="relative flex min-h-screen w-full justify-center overflow-hidden bg-gradient-to-br from-blossom via-white to-rose-petal/40 px-4 pt-4 pb-14 sm:px-6 sm:pt-5 lg:px-8 lg:pt-6 lg:pb-20">
@@ -114,7 +112,7 @@ export default function HomePage() {
               loop
               muted
               playsInline
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-[center_65%]"
               aria-label="Comatozze – Uma North portrait"
             />
           </div>
@@ -140,28 +138,22 @@ export default function HomePage() {
 
             {isDropdownOpen && (
               <div className="absolute right-0 top-full mt-2 w-32 overflow-hidden rounded-lg border border-rose-velvet/20 bg-white/90 shadow-lg backdrop-blur">
-                {LANGUAGE_OPTIONS.map((option) => {
-                  const isActive = option.code === language;
-                  return (
-                    <button
-                      key={option.code}
-                      type="button"
-                      onClick={() => {
-                        setLanguage(option.code);
-                        setIsDropdownOpen(false);
-                      }}
-                      className={[
-                        "w-full px-4 py-2 text-left text-sm font-medium transition",
-                        isActive
-                          ? "bg-rose-velvet text-white"
-                          : "text-rose-velvet/70 hover:bg-rose-velvet/10 hover:text-rose-velvet"
-                      ].join(" ")}
-                      aria-label={option.title}
-                    >
-                      {option.title}
-                    </button>
-                  );
-                })}
+                {LANGUAGE_OPTIONS.map((option) => (
+                  <Link
+                    key={option.code}
+                    href={`/${option.code}`}
+                    className={[
+                      "block w-full px-4 py-2 text-left text-sm font-medium transition",
+                      option.code === language
+                        ? "bg-rose-velvet text-white"
+                        : "text-rose-velvet/70 hover:bg-rose-velvet/10 hover:text-rose-velvet"
+                    ].join(" ")}
+                    aria-label={option.title}
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    {option.title}
+                  </Link>
+                ))}
               </div>
             )}
           </div>

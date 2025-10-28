@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
         hostname: "ugc.production.linktr.ee"
       }
     ]
+  },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/en",
+        permanent: false
+      }
+    ];
   }
 };
 
