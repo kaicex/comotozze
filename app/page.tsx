@@ -1,6 +1,5 @@
  "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { SocialLinkCard } from "./components/SocialLinkCard";
 import { socialPlatforms } from "./components/social-links";
@@ -87,6 +86,7 @@ const COPY: Record<
 
 export default function HomePage() {
   const [language, setLanguage] = useState<Language>("en");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const copy = COPY[language];
 
   useEffect(() => {
@@ -104,44 +104,70 @@ export default function HomePage() {
         className="pointer-events-none absolute -bottom-40 right-[-6rem] h-[360px] w-[360px] rounded-full bg-rose-velvet/15 blur-[160px] animate-float-slow"
       />
 
-      <section className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-8 text-center" lang={language}>
+      <section className="relative z-10 flex w-full max-w-2xl flex-col items-center gap-6 text-center" lang={language}>
 
-        <div className="flex w-full justify-center">
-          <div className="inline-flex items-center gap-1 rounded-full border border-rose-velvet/20 bg-white/70 p-1 backdrop-blur">
-            {LANGUAGE_OPTIONS.map((option) => {
-              const isActive = option.code === language;
-              return (
-                <button
-                  key={option.code}
-                  type="button"
-                  onClick={() => setLanguage(option.code)}
-                  className={[
-                    "rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.36em] transition",
-                    isActive
-                      ? "bg-rose-velvet text-white shadow-[0_12px_28px_-18px_rgba(61,30,58,0.5)]"
-                      : "text-rose-velvet/70 hover:text-rose-velvet"
-                  ].join(" ")}
-                  aria-pressed={isActive}
-                  aria-label={option.title}
-                >
-                  {option.label}
-                </button>
-              );
-            })}
+        <div className="relative w-full">
+          <div className="relative mx-auto h-56 w-48 overflow-hidden rounded-3xl border border-rose-velvet/30 bg-white/40 shadow-[0_22px_48px_-32px_rgba(61,30,58,0.32)]">
+            <video
+              src="/video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover"
+              aria-label="Comatozze – Uma North portrait"
+            />
+          </div>
+
+          <div className="absolute right-0 top-0 z-20">
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center gap-2 rounded-lg bg-transparent px-4 py-2 text-sm font-medium text-rose-velvet transition hover:bg-rose-velvet/5 outline-none"
+              aria-expanded={isDropdownOpen}
+              aria-haspopup="true"
+            >
+              {LANGUAGE_OPTIONS.find((opt) => opt.code === language)?.label}
+              <svg
+                className={`h-4 w-4 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isDropdownOpen && (
+              <div className="absolute right-0 top-full mt-2 w-32 overflow-hidden rounded-lg border border-rose-velvet/20 bg-white/90 shadow-lg backdrop-blur">
+                {LANGUAGE_OPTIONS.map((option) => {
+                  const isActive = option.code === language;
+                  return (
+                    <button
+                      key={option.code}
+                      type="button"
+                      onClick={() => {
+                        setLanguage(option.code);
+                        setIsDropdownOpen(false);
+                      }}
+                      className={[
+                        "w-full px-4 py-2 text-left text-sm font-medium transition",
+                        isActive
+                          ? "bg-rose-velvet text-white"
+                          : "text-rose-velvet/70 hover:bg-rose-velvet/10 hover:text-rose-velvet"
+                      ].join(" ")}
+                      aria-label={option.title}
+                    >
+                      {option.title}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 
         <header className="w-full space-y-4">
-          <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border border-rose-velvet/30 bg-white/40 shadow-[0_22px_48px_-32px_rgba(61,30,58,0.32)]">
-            <Image
-              src="https://ugc.production.linktr.ee/c602e625-8b82-4bbf-953b-45f540adf6cd_Untitled-1.jpeg?io=true&size=avatar-v3_0"
-              alt="Comatozze – Uma North portrait"
-              fill
-              sizes="112px"
-              className="object-cover"
-              priority
-            />
-          </div>
           <h1 className="font-display text-[3rem] leading-[1.05] text-berry-ink sm:text-[3.5rem]">Comatozze / Uma North</h1>
           {copy.tagline ? (
             <h2 className="text-sm font-medium text-berry-ink/70 sm:text-base whitespace-pre-line">{copy.tagline}</h2>
