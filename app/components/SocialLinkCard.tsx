@@ -32,7 +32,7 @@ export function SocialLinkCard({
     borderColor: accentTint
   };
   const linkClassName = [
-    "group relative flex items-center gap-5 overflow-hidden rounded-3xl border bg-white/85 px-6 py-5 text-left shadow-[0_24px_50px_-32px_rgba(61,30,58,0.28)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_32px_70px_-34px_rgba(61,30,58,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-velvet/60",
+    "group relative flex items-center gap-5 overflow-hidden rounded-3xl border bg-white/85 px-4 sm:px-6 py-4 sm:py-5 text-left shadow-[0_24px_50px_-32px_rgba(61,30,58,0.28)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_32px_70px_-34px_rgba(61,30,58,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-velvet/60",
     platform.isPrimary ? "border-white/70 ring-2 ring-rose-velvet/30" : ""
   ]
     .filter(Boolean)
@@ -43,11 +43,11 @@ export function SocialLinkCard({
   const openInNewTabText = language === "zh" ? "在新标签页中打开" : language === "ru" ? "откроется в новой вкладке" : "opens in new tab";
 
   const handleClick = useCallback(() => {
-      trackMetrikaGoal(platform.goalName, {
-        href: platform.url,
-        text: platform.name
-      });
-    }, [platform.goalName, platform.name, platform.url]);
+    trackMetrikaGoal(platform.goalName, {
+      href: platform.url,
+      text: platform.name
+    });
+  }, [platform.goalName, platform.name, platform.url]);
 
   return (
     <li>
@@ -65,18 +65,45 @@ export function SocialLinkCard({
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{ background: accentOverlay }}
         />
+        {/* Mobile layout: icon inline with title */}
+        <div className="relative z-10 flex flex-1 flex-col gap-1.5 sm:hidden">
+          <div className="flex items-center gap-2.5">
+            <span
+              className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base text-white shadow-[0_18px_30px_-16px_rgba(61,30,58,0.32)] transition duration-300 group-hover:scale-110 group-hover:shadow-[0_20px_40px_-18px_rgba(61,30,58,0.4)]"
+              style={{ backgroundColor: accent }}
+            >
+              <Icon />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-xl"
+                style={{ boxShadow: `0 18px 34px -20px ${accentGlow}` }}
+              />
+            </span>
+            <span className="font-display text-[1.2rem] leading-tight text-berry-ink flex-1">
+              {displayName}
+            </span>
+          </div>
+          <span className="rounded-full border border-rose-velvet/15 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.4em] text-rose-velvet/80 self-start">
+            {platform.handle}
+          </span>
+          <p className="text-[0.98rem] leading-relaxed text-berry-ink/75" lang={language}>
+            {description}
+          </p>
+        </div>
+
+        {/* Desktop layout: icon separate from content */}
         <span
-          className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl text-white shadow-[0_18px_30px_-16px_rgba(61,30,58,0.32)] transition duration-300 group-hover:scale-110 group-hover:shadow-[0_20px_40px_-18px_rgba(61,30,58,0.4)]"
+          className="relative hidden sm:flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-xl text-white shadow-[0_18px_30px_-16px_rgba(61,30,58,0.32)] transition duration-300 group-hover:scale-110 group-hover:shadow-[0_20px_40px_-18px_rgba(61,30,58,0.4)]"
           style={{ backgroundColor: accent }}
         >
-          <Icon className="animate-float" />
+          <Icon />
           <span
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 rounded-2xl"
             style={{ boxShadow: `0 18px 34px -20px ${accentGlow}` }}
           />
         </span>
-        <div className="relative z-10 flex flex-1 flex-col gap-1.5">
+        <div className="relative z-10 hidden sm:flex flex-1 flex-col gap-1.5">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="font-display text-[1.4rem] leading-tight text-berry-ink">
               {displayName}

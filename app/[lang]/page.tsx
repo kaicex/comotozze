@@ -144,6 +144,7 @@ export default function HomePage({ params }: { params: Promise<{ lang: string }>
               loop
               muted
               playsInline
+              preload="metadata"
               className="h-full w-full object-cover object-[center_65%]"
               aria-label="Comatozze – Uma North portrait"
             />
