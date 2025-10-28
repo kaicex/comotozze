@@ -139,6 +139,7 @@ export default function HomePage({ params }: { params: Promise<{ lang: string }>
           <div className="relative mx-auto h-56 w-48 overflow-hidden rounded-3xl border border-rose-velvet/30 bg-white/40 shadow-[0_22px_48px_-32px_rgba(61,30,58,0.32)]">
             <video
               src="/video.mp4"
+              poster="/thumb.webp"
               autoPlay
               loop
               muted
