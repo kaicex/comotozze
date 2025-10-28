@@ -56,6 +56,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://comotozze.com"
   },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" }
+    ]
+  },
   openGraph: {
     title: "Comatozze (Uma North) — Exclusive 18+ Content | Fansly Model",
     description:
